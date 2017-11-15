@@ -2,10 +2,8 @@ import random
 from classes.student import Student
 from classes.course import Course
 
-if __name__ == "__main__":
-    print "Tooooo"
-
-    with open("courses.txt", "r") as f:
+def input_courses_from_file(filename):  
+    with open(filename, "r") as f:
         lines = f.readlines()
 
     courses = []
@@ -24,7 +22,15 @@ if __name__ == "__main__":
         elif x[0].strip() == "Running":
             year = int(x[1])
             courses[-1].add_running(year)
+    
+        return courses
+
+if __name__ == "__main__":
+    print "Tooooo"
+    courses = input_courses_from_file("courses.txt")
     for course in courses:
-        print course       
+        print course
+
+          
        
     
